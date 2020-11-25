@@ -17,6 +17,6 @@
 
 
 ---
-<!-- ABOUT THE Course -->
+<!-- ABOUT THE COURSE -->
 ## About The Course
 An introduction to the field of artificial intelligence. Probability-rule-based generative models as well as discriminative models. Applications of artificial intelligence and deep learning in vision and language processing, best practices for building supervised learning models and, in particular, deep neural networks for classification and regression. Feature engineering, autoencoders, and strategies of unsupervised and semi-supervised learning, as well as reinforcement learning.
