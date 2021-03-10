@@ -1,33 +1,95 @@
-## KERAS-DCGAN
+<!-- HEADER -->
 
-*Please note this has been forked from https://github.com/jacobgil/keras-dcgan and modified to fit my needs*
 
-Implementation of http://arxiv.org/abs/1511.06434 with the (awesome) [keras](https://github.com/fchollet/keras) library, for generating artificial images with deep learning.This trains two adversarial deep learning models on real images, in order to produce artificial images that look real.The generator model tries to produce images that look real and get a high score from the discriminator.The discriminator model tries to tell apart between real images and artificial images from the generator.
+<p align="center">
+  <h1 align="center">DCGAN-Keract</h1>
+  <p align="center">
+     Final project for Northwestern University MSDS 458 - Artificial Intelligence and Deep Learning
+  </p>
+</p>
 
----
-This assumes theano ordering.You can still use this with tensorflow, by setting "image_dim_ordering": "th" in ~/.keras/keras.json (although this will be slower).
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+*Please note this project has been forked from https://github.com/jacobgil/keras-dcgan and modified to fit my needs.*
+
 
 ---
-## Usage
-**Training:**
-`python dcgan.py --mode train --batch_size <batch_size>`  
-python dcgan.py --mode train --path ~/images --batch_size 128
+## Table of Contents
+* [Overview](#overview)
+* [Usage](#usage)
+* [Results](#results)
+
+
+---
+## Overview
+Implementation of http://arxiv.org/abs/1511.06434 with the (awesome) [Keras](https://github.com/fchollet/keras) library, for generating artificial images with deep learning.
+
+This program trains two adversarial deep learning models on real images from the MNIST dataset, in order to produce artificial images that look real. The generator model tries to produce images that look real and get a high score from the discriminator. The discriminator model tries to tell apart between real images and artificial images from the generator.
+
+
+The [Keract](https://github.com/philipperemy/keract) library is then used to get a closer look at activations for the convolutional filters (in the discriminator) and deconvolutional filters (in the generator).
+
+---
+## Usage
+You'll need Python 3.7+ and pipenv installed to run this.
+
+**Install dependencies and start venv:**
+```sh
+$ pipenv shell
+$ pipenv install
+```
+
+**Training:**
+```sh
+$ python3 dcgan.py --mode train --batch_size <batch_size>
+```
+
 
 **Image generation:**
-`python dcgan.py --mode generate --batch_size <batch_size>``python dcgan.py --mode generate --batch_size <batch_size> --nice` : top 5% images according to discriminator
-python dcgan.py --mode generate --batch_size 128
+```sh
+$ python3 dcgan.py --mode generate --batch_size <batch_size>
+```
+Or to generate top 5% nicest images according to discriminator:
+```sh
+$ python3 dcgan.py --mode generate --batch_size <batch_size> --nice
+```
 
-**Convolution Layer Visualization:**
-`python dcgan.py --mode activations`
+**Convolution layer visualization:**
+
+```sh
+$ python3 dcgan.py --mode activations
+```
 
 ---
-## Result
+## Results
 
-**generated images :**
+**Generated images:**
 ![generated_image.png](./assets/generated_image.png)
 ![nice_generated_image.png](./assets/nice_generated_image.png)
 
-**train process :**
+
+**Training process:**
 ![training_process.gif](./assets/training_process.gif)
 
----
+
+
+**Convolution Layer Filters** (from the discriminator network):
+
+*Conv-128*
+
+![conv-128](./assets/discrim_128.png)
+
+*Conv-64*
+
+![conv-64](./assets/discrim_64.png)
+
+
+**Deconvolution Layer Filters** (from the generator network):
+
+*Deconv-1*
+
+![conv-128](./assets/gen_1.png)
+
+*Deconv-64*
+
+![conv-64](./assets/gen_64.png)
