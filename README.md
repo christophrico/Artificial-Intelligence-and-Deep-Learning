@@ -22,12 +22,12 @@
 
 ---
 ## Overview
-Implementation of http://arxiv.org/abs/1511.06434 with the (awesome) [Keras](https://github.com/fchollet/keras) library, for generating artificial images with deep learning.
+Implementation of http://arxiv.org/abs/1511.06434 using [Keras](https://github.com/fchollet/keras), for generating artificial images with deep learning.
 
 This program trains two adversarial deep learning models on real images from the MNIST dataset, in order to produce artificial images that look real. The generator model tries to produce images that look real and get a high score from the discriminator. The discriminator model tries to tell apart between real images and artificial images from the generator.
 
 
-The [Keract](https://github.com/philipperemy/keract) library is then used to get a closer look at activations for the convolutional filters (in the discriminator) and deconvolutional filters (in the generator).
+The (awesome) [Keract](https://github.com/philipperemy/keract) library is then used to get a closer look at activations for the convolutional filters (in the discriminator) and deconvolutional filters (in the generator).
 
 ---
 ## Usage
@@ -38,38 +38,81 @@ You'll need Python 3.7+ and pipenv installed to run this.
 $ pipenv shell
 $ pipenv install
 ```
-
+
+
+
+
 **Training:**
 ```sh
-$ python3 dcgan.py --mode train --batch_size <batch_size>
+$ python3 dcgan.py --mode train --batch_size <batch_size>
+
 ```
 
 
-**Image generation:**
+**Image generation:**
+
+
 ```sh
 $ python3 dcgan.py --mode generate --batch_size <batch_size>
-```
+
+```
 Or to generate top 5% nicest images according to discriminator:
 ```sh
 $ python3 dcgan.py --mode generate --batch_size <batch_size> --nice
-```
 
-**Convolution layer visualization:**
+```
+
+
+
+
+**Convolution layer visualization:**
 
 ```sh
 $ python3 dcgan.py --mode activations
 ```
 
----
+---
+
+
+
 ## Results
 
-**Generated images:**
+
+
+
+
+**Generated images:**
+
+
+
 ![generated_image.png](./assets/generated_image.png)
-![nice_generated_image.png](./assets/nice_generated_image.png)
 
 
-**Training process:**
-![training_process.gif](./assets/training_process.gif)
+
+
+
+
+![nice_generated_image.png](./assets/nice_generated_image.png)
+
+
+
+
+
+
+
+
+**Training process:**
+
+
+
+
+![training_process.gif](./assets/training_process.gif)
+
+
+
+
+
+
 
 
 
