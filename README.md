@@ -25,7 +25,8 @@
 Implementation of http://arxiv.org/abs/1511.06434 using [Keras](https://github.com/fchollet/keras), for generating artificial images with deep learning.
 
 This program trains two adversarial deep learning models on real images from the MNIST dataset, in order to produce artificial images that look real. The generator model tries to produce images that look real and get a high score from the discriminator. The discriminator model tries to tell apart between real images and artificial images from the generator.
-!(./assets/gan_diagram.png)
+
+![gan_diagram](./assets/gan_diagram.png)
 
 The (awesome) [Keract](https://github.com/philipperemy/keract) library is then used to get a closer look at activations for the convolutional filters (in the discriminator) and deconvolutional filters (in the generator).
 
